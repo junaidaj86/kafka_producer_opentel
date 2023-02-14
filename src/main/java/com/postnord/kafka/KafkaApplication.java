@@ -1,4 +1,4 @@
-package com.junaid.opentel;
+package com.postnord.opentel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
