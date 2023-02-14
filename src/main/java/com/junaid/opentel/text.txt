@@ -1,0 +1,695 @@
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.005+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.007+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.007+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.008+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.008+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.009+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.009+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.010+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.010+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.011+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.011+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.011+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.011+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.012+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.012+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.012+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.012+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.012+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.013+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.013+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.013+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.044+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1291) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1247) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1220) ~[kafka-clients-3.3.2.jar:na]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1694) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1669) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1470) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1362) ~[spring-kafka-3.0.2.jar:3.0.2]
+        ... 2 common frames omitted
+Caused by: java.lang.IllegalArgumentException: The class 'com.junaid.opentel.model.User' is not in the trusted packages: [java.util, java.lang]. If you believe this class is safe to deserialize, please provide its name. If the serialization is only done by a trusted source, you can also enable trust all (*).
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.getClassIdType(DefaultJackson2JavaTypeMapper.java:129) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper.toJavaType(DefaultJackson2JavaTypeMapper.java:103) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.support.serializer.JsonDeserializer.deserialize(JsonDeserializer.java:572) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1429) ~[kafka-clients-3.3.2.jar:na]
+        ... 14 common frames omitted
+
+2023-02-07T23:39:08.045+01:00 ERROR 25987 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Consumer exception
+
+java.lang.IllegalStateException: This error handler cannot process 'SerializationException's directly; please consider configuring an 'ErrorHandlingDeserializer' in the value and/or key deserializer
+        at org.springframework.kafka.listener.DefaultErrorHandler.handleOtherException(DefaultErrorHandler.java:198) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.handleConsumerException(KafkaMessageListenerContainer.java:1979) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1414) ~[spring-kafka-3.0.2.jar:3.0.2]
+        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+        at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.kafka.common.errors.RecordDeserializationException: Error deserializing key/value for partition myTopic-0 at offset 26. If needed, please seek past the record to continue consumption.
+        at org.apache.kafka.clients.consumer.internals.Fetcher.parseRecord(Fetcher.java:1438) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.access$3400(Fetcher.java:133) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.fetchRecords(Fetcher.java:1661) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher$CompletedFetch.access$1900(Fetcher.java:1497) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.fetchRecords(Fetcher.java:717) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consumer.internals.Fetcher.collectFetch(Fetcher.java:683) ~[kafka-clients-3.3.2.jar:na]
+        at org.apache.kafka.clients.consume
