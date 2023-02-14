@@ -1,4 +1,4 @@
-package com.junaid.opentel;
+package com.postnord.kafka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

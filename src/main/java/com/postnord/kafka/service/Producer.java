@@ -1,4 +1,4 @@
-package com.junaid.opentel.service;
+package com.postnord.kafka.service;
 
 public interface Producer {
     public void sendMessageSync(Object inputTopicName, Object errorTopicName, Object payload);

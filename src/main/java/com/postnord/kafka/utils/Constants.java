@@ -1,4 +1,4 @@
-package com.junaid.opentel.utils;
+package com.postnord.kafka.utils;
 
 public interface Constants {
 

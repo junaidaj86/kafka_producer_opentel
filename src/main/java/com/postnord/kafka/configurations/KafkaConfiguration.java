@@ -1,4 +1,4 @@
-package com.junaid.opentel.configurations;
+package com.postnord.kafka.configurations;
 
 import java.util.HashMap;
 import java.util.Map;

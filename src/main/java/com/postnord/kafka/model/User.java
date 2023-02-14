@@ -1,4 +1,4 @@
-package com.junaid.opentel.model;
+package com.postnord.kafka.model;
 
 public class User {
     String name;

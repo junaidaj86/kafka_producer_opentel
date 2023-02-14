@@ -11,7 +11,7 @@ export OTEL_TRACES_EXPORTER=otlp
 export OTEL_METRICS_EXPORTER=otlp
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:5555
 
-export OTEL_RESOURCE_ATTRIBUTES=service.name=junaid,service.version=1.0
+export OTEL_RESOURCE_ATTRIBUTES=service.name=postnord,service.version=1.0
 export OTEL_TRACES_SAMPLER=always_on
 export OTEL_IMR_EXPORT_INTERVAL=1000
 export OTEL_METRIC_EXPORT_INTERVAL=1000

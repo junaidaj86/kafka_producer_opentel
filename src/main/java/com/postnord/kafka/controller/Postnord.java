@@ -1,4 +1,4 @@
-package com.junaid.opentel.controller;
+package com.postnord.kafka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.postnord.kafka.model.User;
+import com.postnord.kafka.service.Producer;
+import com.postnord.kafka.utils.Constants;
+
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.junaid.opentel.model.User;
-import com.junaid.opentel.service.Producer;
-import com.junaid.opentel.utils.Constants;
 
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.metrics.LongCounter;

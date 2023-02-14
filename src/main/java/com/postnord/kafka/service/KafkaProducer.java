@@ -1,4 +1,4 @@
-package com.junaid.opentel.service;
+package com.postnord.kafka.service;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
